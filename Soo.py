@@ -2,6 +2,7 @@ import matplotlib.pyplot as mpl
 import numpy as np
 import random as rn
 import math as mt
+import pulp
 
 dim = [0, 100]
 number = 5
