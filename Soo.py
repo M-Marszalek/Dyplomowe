@@ -4,9 +4,9 @@ import random as rn
 import math as mt
 import pulp as pu
 
-dim = [0, 100]
-ware_no = 5
-sto_no = 12
+dim = [0, 200]
+ware_no = 17
+sto_no = 40
 
 
 def sum_coll(base, col_no):
@@ -67,12 +67,10 @@ distance = np.transpose(distance)
 print("\nodległosci: \n", distance)
 
 
-
 mpl.figure(1)
-
 mpl.plot(warehouses[:, 0], warehouses[:, 1], 'ro')
 mpl.plot(stores[:, 0], stores[:, 1], 'bo')
-mpl.axis([0, 100, 0, 100])
+mpl.axis([dim[0], dim[1], dim[0], dim[1]])
 mpl.show()
 
 # solver
@@ -83,7 +81,7 @@ problem = pu.LpProblem("FacLoc", pu.LpMinimize)
 
 y = pu.LpVariable.dicts("y",
                         [(i, j) for i in range(ware_no)
-                        for j in range(sto_no)], 0)
+                        for j in range(sto_no)], 0, 1, pu.LpBinary)
 x = pu.LpVariable.dicts("x", range(ware_no), 0, 1, pu.LpBinary)
 
 # funkcja
@@ -98,8 +96,7 @@ for j in range(sto_no):
     problem += pu.lpSum(y[(i, j)] for i in range(ware_no)) == 1
 
 for i in range(ware_no):
-    problem += (pu.lpSum(y[(i, j)] * d[(j)] for j in range(sto_no))
-    <= x[i] * u[i])
+    problem += (pu.lpSum(y[(i, j)] * d[(j)] for j in range(sto_no)) <= x[i] * u[i])
 
 
 problem.solve()
@@ -126,14 +123,25 @@ for lp in range(ware_no):
 great = np.array(great)
 bad = np.array(bad)
 
-print(great, bad)
+print(great, '\nclosed:\n', bad)
+
+# tworzenie polaczen
+conn = []
+for i in range(ware_no):
+    for j in range(sto_no):
+        if ya[i, j] > 0:
+            conn.append([warehouses[i, 0], warehouses[i, 1], stores[j, 0], stores[j, 1]])
+conn = np.array(conn)
+print(conn)
 
 mpl.figure(2)
 
+for l in range(conn.shape[0]):
+    mpl.plot([conn[l, 0], conn[l, 2]], [conn[l, 1], conn[l, 3]], 'g')
 mpl.plot(great[:, 0], great[:, 1], 'yo')
 mpl.plot(bad[:, 0], bad[:, 1], 'rs')
 mpl.plot(stores[:, 0], stores[:, 1], 'bo')
-mpl.axis([0, 100, 0, 100])
+mpl.axis([dim[0], dim[1], dim[0], dim[1]])
 mpl.show()
 
 print("fajnie było")
