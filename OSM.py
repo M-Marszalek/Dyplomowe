@@ -1,12 +1,5 @@
 import folium
 from folium import plugins
-import pandas as pd
-import matplotlib.pyplot as plt
-from IPython.core.display import display, HTML
-import IPython.display as ipyd
-import osrm_plus
-import requests
-import polyline
 import numpy as np
 import osrm
 
@@ -15,6 +8,14 @@ def replace_coord(place):
      replaced.append(place[1])
      replaced.append(place[0])
      return(replaced)
+
+def replace_coll(db):
+     dbd = np.zeros(db.shape)
+     for rows in range(db.shape[0]):
+         dbd[rows, 0] = db[rows, 1]
+         dbd[rows, 1] = db[rows, 0]
+
+     return dbd
 
 def get_distance(resp):
      resp2 = resp['routes']
@@ -38,15 +39,13 @@ dom = [16.48642, 50.84236]
 pwr = [17.0618875, 51.1075006]
 
 
-
 client = osrm.Client(host='http://router.project-osrm.org', profile='car')
-
 
 response = client.route(
      coordinates=[pwr, dom])
 
 
-print(get_distance(response)/100,'km')
+print(get_distance(response)/1000,'km')
 print(response)
 
 trip = route_coords(response)
@@ -57,6 +56,6 @@ folium.Marker(replace_coord(dom)).add_to(m)
 for i in range(trip.shape[0]):
      folium.Marker(([trip[i, 0], trip[i, 1]]), popup=i, icon=folium.Icon(color='red')).add_to(m)
 folium.plugins.AntPath(trip).add_to(m)
-m.save('DWR.html')
-ipyd.IFrame('DWR.html', width=1000, height=500)
+m.save('dane.html')
+
 

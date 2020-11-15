@@ -5,8 +5,8 @@ import math as mt
 import pulp as pu
 
 dim = [0, 100]
-ware_no = 17
-sto_no = 50
+ware_no = 5
+sto_no = 10
 
 
 def sum_coll(base, col_no):
@@ -30,7 +30,7 @@ warehouses = []
 for i in range(ware_no):
     xlab = rn.randint(dim[0], dim[1])
     ylab = rn.randint(dim[0], dim[1])
-    u1 = rn.randint(20, 40) * 100
+    u1 = rn.randint(30, 40) * 100
     f1 = rn.randint(10000, 30000)
     new_ware = ([xlab, ylab, u1, f1])
     warehouses.append(new_ware)
@@ -43,7 +43,7 @@ stores = []
 for i in range(sto_no):
     xlab = rn.randint(dim[0], dim[1])
     ylab = rn.randint(dim[0], dim[1])
-    d1 = rn.randint(20, 40) * 25
+    d1 = rn.randint(20, 30) * 25
     new_sto = ([xlab, ylab, d1])
     stores.append(new_sto)
 stores = np.array(stores)
