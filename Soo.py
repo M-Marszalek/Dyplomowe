@@ -4,9 +4,9 @@ import random as rn
 import math as mt
 import pulp as pu
 
-dim = [0, 200]
+dim = [0, 100]
 ware_no = 17
-sto_no = 40
+sto_no = 50
 
 
 def sum_coll(base, col_no):
@@ -60,11 +60,15 @@ supp = sum_coll(warehouses, 2)
 dem = sum_coll(stores, 2)
 print("popyt:", dem)
 print("podaż:", supp)
+if dem>supp:
+    print("brak optymalnego rozwiązania")
+else:
+    print("istnieje optymalne rozwiazanie")
 
 # cost
 distance = dist_o_meter(warehouses, stores)
 distance = np.transpose(distance)
-print("\nodległosci: \n", distance)
+#print("\nodległosci: \n", distance)
 
 
 mpl.figure(1)
@@ -139,7 +143,8 @@ mpl.figure(2)
 for l in range(conn.shape[0]):
     mpl.plot([conn[l, 0], conn[l, 2]], [conn[l, 1], conn[l, 3]], 'g')
 mpl.plot(great[:, 0], great[:, 1], 'yo')
-mpl.plot(bad[:, 0], bad[:, 1], 'rs')
+if len(bad) > 0:
+    mpl.plot(bad[:, 0], bad[:, 1], 'rs')
 mpl.plot(stores[:, 0], stores[:, 1], 'bo')
 mpl.axis([dim[0], dim[1], dim[0], dim[1]])
 mpl.show()
