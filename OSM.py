@@ -2,6 +2,7 @@ import folium
 from folium import plugins
 import numpy as np
 import osrm
+import geocoder
 
 def replace_coord(place):
      replaced = []
@@ -35,27 +36,64 @@ def route_coords(resp1):
           a[i, 1] = resp5[i, 0]
      return a
 
-dom = [16.48642, 50.84236]
-pwr = [17.0618875, 51.1075006]
+def get_fac():
+     fac= []
+     while True:
+          adress = input('podaj adres: ')
+          adress = geocoder.osm(adress)
+          if not adress:
+               print("Nie mogę znaleźć podanego adresu. Spróbuj jeszcze raz")
+               continue
+          else:
+               break
+     return adress.latlng
 
+def get_costum():
+     while True:
+          start = input('podaj adres: ')
+          start = geocoder.osm(start)
+          if not start:
+               print("Nie mogę znaleźć podanego adresu. Spróbuj jeszcze raz")
+               continue
+          else:
+               break
+     return start.latlng
+
+
+
+
+pocz= replace_coord(get_fac())
+fini = replace_coord(get_costum())
+
+
+place = geocoder.osm("Kino nowe horyzonty")
+
+
+print(place.latlng)
+
+
+coords = place.latlng
+print(type(coords[0]))
 
 client = osrm.Client(host='http://router.project-osrm.org', profile='car')
 
 response = client.route(
-     coordinates=[pwr, dom])
+     coordinates=[pocz, fini])
 
 
 print(get_distance(response)/1000,'km')
 print(response)
 
+
+
 trip = route_coords(response)
 
 m = folium.Map([51.1380, 16.7294], zoom_start=9)
-folium.Marker(replace_coord(pwr)).add_to(m)
-folium.Marker(replace_coord(dom)).add_to(m)
-for i in range(trip.shape[0]):
-     folium.Marker(([trip[i, 0], trip[i, 1]]), popup=i, icon=folium.Icon(color='red')).add_to(m)
+folium.Marker(replace_coord(pocz
+               )).add_to(m)
+folium.Marker(replace_coord(fini)).add_to(m)
+folium.Marker(coords, popup='TO TU', icon=folium.Icon(color='red')).add_to(m)
 folium.plugins.AntPath(trip).add_to(m)
-m.save('dane.html')
+m.save('BETA.html')
 
 
