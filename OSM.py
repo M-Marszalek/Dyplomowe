@@ -1,3 +1,4 @@
+
 import folium
 from folium import plugins
 import numpy as np
@@ -15,8 +16,11 @@ def replace_coll(db):
      for rows in range(db.shape[0]):
          dbd[rows, 0] = db[rows, 1]
          dbd[rows, 1] = db[rows, 0]
-
      return dbd
+
+def get_coordinats(adreses):
+    for i in range(adreses.shape[0]):
+
 
 def get_distance(resp):
      resp2 = resp['routes']
