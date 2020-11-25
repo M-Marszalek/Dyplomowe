@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<head>    
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    
+        <script>
+            L_NO_TOUCH = false;
+            L_DISABLE_3D = false;
+        </script>
+    
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.6.0/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.6.0/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
+    <link rel="stylesheet" href="https://rawcdn.githack.com/python-visualization/folium/master/folium/templates/leaflet.awesome.rotate.css"/>
+    <style>html, body {width: 100%;height: 100%;margin: 0;padding: 0;}</style>
+    <style>#map {position:absolute;top:0;bottom:0;right:0;left:0;}</style>
+    
+            <meta name="viewport" content="width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+            <style>
+                #map_7512961ca88547e88fefa533b0b12ece {
+                    position: relative;
+                    width: 100.0%;
+                    height: 100.0%;
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+            </style>
+        
+</head>
+<body>    
+    
+            <div class="folium-map" id="map_7512961ca88547e88fefa533b0b12ece" ></div>
+        
+</body>
+<script>    
+    
+            var map_7512961ca88547e88fefa533b0b12ece = L.map(
+                "map_7512961ca88547e88fefa533b0b12ece",
+                {
+                    center: [51.138, 16.7294],
+                    crs: L.CRS.EPSG3857,
+                    zoom: 8,
+                    zoomControl: true,
+                    preferCanvas: false,
+                }
+            );
+
+            
+
+        
+    
+            var tile_layer_73259a61cdc945bf8a5c0de559ccd15e = L.tileLayer(
+                "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
+                {"attribution": "Data by \u0026copy; \u003ca href=\"http://openstreetmap.org\"\u003eOpenStreetMap\u003c/a\u003e, under \u003ca href=\"http://www.openstreetmap.org/copyright\"\u003eODbL\u003c/a\u003e.", "detectRetina": false, "maxNativeZoom": 18, "maxZoom": 18, "minZoom": 0, "noWrap": false, "opacity": 1, "subdomains": "abc", "tms": false}
+            ).addTo(map_7512961ca88547e88fefa533b0b12ece);
+        
+    
+            var marker_04c75101bba44b31b4450bcd9b1b3a6e = L.marker(
+                [51.1641562, 16.1949928],
+                {}
+            ).addTo(map_7512961ca88547e88fefa533b0b12ece);
+        
+    
+            var icon_566a9175e8ac4aebb06ff07120488db9 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "cadetblue", "prefix": "glyphicon"}
+            );
+            marker_04c75101bba44b31b4450bcd9b1b3a6e.setIcon(icon_566a9175e8ac4aebb06ff07120488db9);
+        
+    
+        var popup_a99a5832f1b447dfb3ae16f147ac7d7f = L.popup({"maxWidth": "100%"});
+
+        
+            var html_d8c6687330364f71ac81d871fe77d408 = $(`<div id="html_d8c6687330364f71ac81d871fe77d408" style="width: 100.0%; height: 100.0%;">magazyn 0 produkuje 3145 jednostek towaru,  koszt utrzymania to: 38390</div>`)[0];
+            popup_a99a5832f1b447dfb3ae16f147ac7d7f.setContent(html_d8c6687330364f71ac81d871fe77d408);
+        
+
+        marker_04c75101bba44b31b4450bcd9b1b3a6e.bindPopup(popup_a99a5832f1b447dfb3ae16f147ac7d7f)
+        ;
+
+        
+    
+    
+            var marker_978327f226b049fbb0ad64a9eded4469 = L.marker(
+                [51.0989945, 16.9237728],
+                {}
+            ).addTo(map_7512961ca88547e88fefa533b0b12ece);
+        
+    
+            var icon_813c6e43eb3d4024ae46f1c214e50cfe = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "cadetblue", "prefix": "glyphicon"}
+            );
+            marker_978327f226b049fbb0ad64a9eded4469.setIcon(icon_813c6e43eb3d4024ae46f1c214e50cfe);
+        
+    
+        var popup_40bcc6764d464151bee61e6c83f8bf3c = L.popup({"maxWidth": "100%"});
+
+        
+            var html_dcec0529553e4652a1dac867777a4e2f = $(`<div id="html_dcec0529553e4652a1dac867777a4e2f" style="width: 100.0%; height: 100.0%;">magazyn 1 produkuje 3400 jednostek towaru,  koszt utrzymania to: 49486</div>`)[0];
+            popup_40bcc6764d464151bee61e6c83f8bf3c.setContent(html_dcec0529553e4652a1dac867777a4e2f);
+        
+
+        marker_978327f226b049fbb0ad64a9eded4469.bindPopup(popup_40bcc6764d464151bee61e6c83f8bf3c)
+        ;
+
+        
+    
+    
+            var marker_c4af1999c02e40d38809c1c3a6625b8a = L.marker(
+                [51.41146765, 16.175009612747367],
+                {}
+            ).addTo(map_7512961ca88547e88fefa533b0b12ece);
+        
+    
+            var icon_b8b1984178b640dcb98e78a350b1966c = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "cadetblue", "prefix": "glyphicon"}
+            );
+            marker_c4af1999c02e40d38809c1c3a6625b8a.setIcon(icon_b8b1984178b640dcb98e78a350b1966c);
+        
+    
+        var popup_ade3e8b2fb504731a5a0f15f604a1422 = L.popup({"maxWidth": "100%"});
+
+        
+            var html_108dfa592b04465a85abdf3882d62dbc = $(`<div id="html_108dfa592b04465a85abdf3882d62dbc" style="width: 100.0%; height: 100.0%;">magazyn 2 produkuje 3230 jednostek towaru,  koszt utrzymania to: 40151</div>`)[0];
+            popup_ade3e8b2fb504731a5a0f15f604a1422.setContent(html_108dfa592b04465a85abdf3882d62dbc);
+        
+
+        marker_c4af1999c02e40d38809c1c3a6625b8a.bindPopup(popup_ade3e8b2fb504731a5a0f15f604a1422)
+        ;
+
+        
+    
+    
+            var marker_118912176f0f449aab5aa5899aa65b97 = L.marker(
+                [51.21345625, 17.403753463553954],
+                {}
+            ).addTo(map_7512961ca88547e88fefa533b0b12ece);
+        
+    
+            var icon_fa441967f5834acfa64e5117c7132aa3 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "cadetblue", "prefix": "glyphicon"}
+            );
+            marker_118912176f0f449aab5aa5899aa65b97.setIcon(icon_fa441967f5834acfa64e5117c7132aa3);
+        
+    
+        var popup_9b3a2dae1c864746974c290e6a30bd43 = L.popup({"maxWidth": "100%"});
+
+        
+            var html_4406e9c6eaff48f68fe1842f327c8807 = $(`<div id="html_4406e9c6eaff48f68fe1842f327c8807" style="width: 100.0%; height: 100.0%;">magazyn 3 produkuje 2975 jednostek towaru,  koszt utrzymania to: 36628</div>`)[0];
+            popup_9b3a2dae1c864746974c290e6a30bd43.setContent(html_4406e9c6eaff48f68fe1842f327c8807);
+        
+
+        marker_118912176f0f449aab5aa5899aa65b97.bindPopup(popup_9b3a2dae1c864746974c290e6a30bd43)
+        ;
+
+        
+    
+    
+            var marker_f734b74a0e8941c4bb3c616522ac61df = L.marker(
+                [50.8136783, 16.2796224],
+                {}
+            ).addTo(map_7512961ca88547e88fefa533b0b12ece);
+        
+    
+            var icon_a06fdb0a50704f32b44d39f57e2a4303 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "cadetblue", "prefix": "glyphicon"}
+            );
+            marker_f734b74a0e8941c4bb3c616522ac61df.setIcon(icon_a06fdb0a50704f32b44d39f57e2a4303);
+        
+    
+        var popup_915a256d29be4b8799349cf053ce127b = L.popup({"maxWidth": "100%"});
+
+        
+            var html_2f385d5a44684eae96e8d127db6aae3b = $(`<div id="html_2f385d5a44684eae96e8d127db6aae3b" style="width: 100.0%; height: 100.0%;">magazyn 4 produkuje 3400 jednostek towaru,  koszt utrzymania to: 46696</div>`)[0];
+            popup_915a256d29be4b8799349cf053ce127b.setContent(html_2f385d5a44684eae96e8d127db6aae3b);
+        
+
+        marker_f734b74a0e8941c4bb3c616522ac61df.bindPopup(popup_915a256d29be4b8799349cf053ce127b)
+        ;
+
+        
+    
+    
+            var marker_4596ca4ce7674b7c8f2331fd5dc0b782 = L.marker(
+                [50.8463719, 16.4986478],
+                {}
+            ).addTo(map_7512961ca88547e88fefa533b0b12ece);
+        
+    
+            var icon_2d97f0ac8b3547df8d86de6702b02e3a = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "cadetblue", "prefix": "glyphicon"}
+            );
+            marker_4596ca4ce7674b7c8f2331fd5dc0b782.setIcon(icon_2d97f0ac8b3547df8d86de6702b02e3a);
+        
+    
+        var popup_4b240991c4474477b813360eb2c0161d = L.popup({"maxWidth": "100%"});
+
+        
+            var html_8b0ca73d498e4d8298202263137a17b2 = $(`<div id="html_8b0ca73d498e4d8298202263137a17b2" style="width: 100.0%; height: 100.0%;">magazyn 5 produkuje 3230 jednostek towaru,  koszt utrzymania to: 37441</div>`)[0];
+            popup_4b240991c4474477b813360eb2c0161d.setContent(html_8b0ca73d498e4d8298202263137a17b2);
+        
+
+        marker_4596ca4ce7674b7c8f2331fd5dc0b782.bindPopup(popup_4b240991c4474477b813360eb2c0161d)
+        ;
+
+        
+    
+    
+            var marker_c7efa3cbe25e439fa5878c027d4dd248 = L.marker(
+                [51.153854499999994, 17.160422075995754],
+                {}
+            ).addTo(map_7512961ca88547e88fefa533b0b12ece);
+        
+    
+            var icon_34e89a11513647e98e39db970a68662f = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "cadetblue", "prefix": "glyphicon"}
+            );
+            marker_c7efa3cbe25e439fa5878c027d4dd248.setIcon(icon_34e89a11513647e98e39db970a68662f);
+        
+    
+        var popup_06583e9210c444eaabf6c8433f139958 = L.popup({"maxWidth": "100%"});
+
+        
+            var html_87bf648ba2cd49cba9b861d345f6179d = $(`<div id="html_87bf648ba2cd49cba9b861d345f6179d" style="width: 100.0%; height: 100.0%;">magazyn 6 produkuje 3230 jednostek towaru,  koszt utrzymania to: 36779</div>`)[0];
+            popup_06583e9210c444eaabf6c8433f139958.setContent(html_87bf648ba2cd49cba9b861d345f6179d);
+        
+
+        marker_c7efa3cbe25e439fa5878c027d4dd248.bindPopup(popup_06583e9210c444eaabf6c8433f139958)
+        ;
+
+        
+    
+    
+            var marker_0521c10908ee427bbaee9382628d7e74 = L.marker(
+                [51.0313279, 16.760166919252534],
+                {}
+            ).addTo(map_7512961ca88547e88fefa533b0b12ece);
+        
+    
+            var icon_a69203e953ea4ff48a7fb755909a0886 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "cadetblue", "prefix": "glyphicon"}
+            );
+            marker_0521c10908ee427bbaee9382628d7e74.setIcon(icon_a69203e953ea4ff48a7fb755909a0886);
+        
+    
+        var popup_370916eadbf84b58909026cbf47e73e3 = L.popup({"maxWidth": "100%"});
+
+        
+            var html_df51a06897b94eb5b711ef6fdb813698 = $(`<div id="html_df51a06897b94eb5b711ef6fdb813698" style="width: 100.0%; height: 100.0%;">magazyn 7 produkuje 3060 jednostek towaru,  koszt utrzymania to: 49167</div>`)[0];
+            popup_370916eadbf84b58909026cbf47e73e3.setContent(html_df51a06897b94eb5b711ef6fdb813698);
+        
+
+        marker_0521c10908ee427bbaee9382628d7e74.bindPopup(popup_370916eadbf84b58909026cbf47e73e3)
+        ;
+
+        
+    
+    
+            var marker_4a057740976e47439c0cc0289e9e9ae6 = L.marker(
+                [51.1121783, 17.0599566],
+                {}
+            ).addTo(map_7512961ca88547e88fefa533b0b12ece);
+        
+    
+            var icon_86ffaefb12ca4ad1a9b51aeb4c8f75c6 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "blue", "prefix": "glyphicon"}
+            );
+            marker_4a057740976e47439c0cc0289e9e9ae6.setIcon(icon_86ffaefb12ca4ad1a9b51aeb4c8f75c6);
+        
+    
+        var popup_13f742c50eac4128a4875fffbdfed040 = L.popup({"maxWidth": "100%"});
+
+        
+            var html_d544d950fc2f45f49d481034f875860e = $(`<div id="html_d544d950fc2f45f49d481034f875860e" style="width: 100.0%; height: 100.0%;">klient 0 potrzebuje 875 jednostek towaru</div>`)[0];
+            popup_13f742c50eac4128a4875fffbdfed040.setContent(html_d544d950fc2f45f49d481034f875860e);
+        
+
+        marker_4a057740976e47439c0cc0289e9e9ae6.bindPopup(popup_13f742c50eac4128a4875fffbdfed040)
+        ;
+
+        
+    
+    
+            var marker_0b6784e6b4da4b75842f6eab9d3478c3 = L.marker(
+                [51.1194, 16.9897],
+                {}
+            ).addTo(map_7512961ca88547e88fefa533b0b12ece);
+        
+    
+            var icon_4b4b05feb7f84c40be0579f288807ebd = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "blue", "prefix": "glyphicon"}
+            );
+            marker_0b6784e6b4da4b75842f6eab9d3478c3.setIcon(icon_4b4b05feb7f84c40be0579f288807ebd);
+        
+    
+        var popup_c7db0bde370549a1a69918a84cfa7df3 = L.popup({"maxWidth": "100%"});
+
+        
+            var html_d4c751b8d6d944eb854a2697a54e07c8 = $(`<div id="html_d4c751b8d6d944eb854a2697a54e07c8" style="width: 100.0%; height: 100.0%;">klient 1 potrzebuje 560 jednostek towaru</div>`)[0];
+            popup_c7db0bde370549a1a69918a84cfa7df3.setContent(html_d4c751b8d6d944eb854a2697a54e07c8);
+        
+
+        marker_0b6784e6b4da4b75842f6eab9d3478c3.bindPopup(popup_c7db0bde370549a1a69918a84cfa7df3)
+        ;
+
+        
+    
+    
+            var marker_87049e3607bd419d9baebca78e9e5b11 = L.marker(
+                [51.10849775, 17.040575365781248],
+                {}
+            ).addTo(map_7512961ca88547e88fefa533b0b12ece);
+        
+    
+            var icon_86887e1d87a740baaf5918530f301ea6 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "blue", "prefix": "glyphicon"}
+            );
+            marker_87049e3607bd419d9baebca78e9e5b11.setIcon(icon_86887e1d87a740baaf5918530f301ea6);
+        
+    
+        var popup_cd99cda8c84c4162a5eaf759a49fe450 = L.popup({"maxWidth": "100%"});
+
+        
+            var html_3992febff711422e8edb2e551dc6b328 = $(`<div id="html_3992febff711422e8edb2e551dc6b328" style="width: 100.0%; height: 100.0%;">klient 2 potrzebuje 875 jednostek towaru</div>`)[0];
+            popup_cd99cda8c84c4162a5eaf759a49fe450.setContent(html_3992febff711422e8edb2e551dc6b328);
+        
+
+        marker_87049e3607bd419d9baebca78e9e5b11.bindPopup(popup_cd99cda8c84c4162a5eaf759a49fe450)
+        ;
+
+        
+    
+    
+            var marker_aecae72bcfb24bdb9caead4e891b6b86 = L.marker(
+                [51.0972866, 17.0340187],
+                {}
+            ).addTo(map_7512961ca88547e88fefa533b0b12ece);
+        
+    
+            var icon_b639d107a55947b690ad05534c28b5df = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "blue", "prefix": "glyphicon"}
+            );
+            marker_aecae72bcfb24bdb9caead4e891b6b86.setIcon(icon_b639d107a55947b690ad05534c28b5df);
+        
+    
+        var popup_0bd90a2745394310ad9fde3e1aa3c0f7 = L.popup({"maxWidth": "100%"});
+
+        
+            var html_99f60adcbff94bb9ad5aba63b046e240 = $(`<div id="html_99f60adcbff94bb9ad5aba63b046e240" style="width: 100.0%; height: 100.0%;">klient 3 potrzebuje 840 jednostek towaru</div>`)[0];
+            popup_0bd90a2745394310ad9fde3e1aa3c0f7.setContent(html_99f60adcbff94bb9ad5aba63b046e240);
+        
+
+        marker_aecae72bcfb24bdb9caead4e891b6b86.bindPopup(popup_0bd90a2745394310ad9fde3e1aa3c0f7)
+        ;
+
+        
+    
+    
+            var marker_e787e8030cd74ae88613d4d7f735c99d = L.marker(
+                [51.1848689, 16.1716581],
+                {}
+            ).addTo(map_7512961ca88547e88fefa533b0b12ece);
+        
+    
+            var icon_c615b4700ba14ca28c69408b99e46f63 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "blue", "prefix": "glyphicon"}
+            );
+            marker_e787e8030cd74ae88613d4d7f735c99d.setIcon(icon_c615b4700ba14ca28c69408b99e46f63);
+        
+    
+        var popup_2bdbf84c4f7b4c3ea7513e5271f78766 = L.popup({"maxWidth": "100%"});
+
+        
+            var html_d5a854ab94a54b9d9fca379598044991 = $(`<div id="html_d5a854ab94a54b9d9fca379598044991" style="width: 100.0%; height: 100.0%;">klient 4 potrzebuje 595 jednostek towaru</div>`)[0];
+            popup_2bdbf84c4f7b4c3ea7513e5271f78766.setContent(html_d5a854ab94a54b9d9fca379598044991);
+        
+
+        marker_e787e8030cd74ae88613d4d7f735c99d.bindPopup(popup_2bdbf84c4f7b4c3ea7513e5271f78766)
+        ;
+
+        
+    
+    
+            var marker_da30781a1e10464f91cb1915969c444a = L.marker(
+                [50.7660153, 16.2644891],
+                {}
+            ).addTo(map_7512961ca88547e88fefa533b0b12ece);
+        
+    
+            var icon_fa207e0a678b4084ab0e4f76ad01b23e = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "blue", "prefix": "glyphicon"}
+            );
+            marker_da30781a1e10464f91cb1915969c444a.setIcon(icon_fa207e0a678b4084ab0e4f76ad01b23e);
+        
+    
+        var popup_a96540ec72924a9ba5658b38556e7bf0 = L.popup({"maxWidth": "100%"});
+
+        
+            var html_d2d9b028179341598f7d1d2610abfb5a = $(`<div id="html_d2d9b028179341598f7d1d2610abfb5a" style="width: 100.0%; height: 100.0%;">klient 5 potrzebuje 665 jednostek towaru</div>`)[0];
+            popup_a96540ec72924a9ba5658b38556e7bf0.setContent(html_d2d9b028179341598f7d1d2610abfb5a);
+        
+
+        marker_da30781a1e10464f91cb1915969c444a.bindPopup(popup_a96540ec72924a9ba5658b38556e7bf0)
+        ;
+
+        
+    
+    
+            var marker_258312671f3e43ee953b7785c5f48137 = L.marker(
+                [51.393752, 16.2054606],
+                {}
+            ).addTo(map_7512961ca88547e88fefa533b0b12ece);
+        
+    
+            var icon_a1d165dfccb641e49c5640caf985cd1e = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "blue", "prefix": "glyphicon"}
+            );
+            marker_258312671f3e43ee953b7785c5f48137.setIcon(icon_a1d165dfccb641e49c5640caf985cd1e);
+        
+    
+        var popup_67955701cf0d4b1cb0f4216e1e2f6be7 = L.popup({"maxWidth": "100%"});
+
+        
+            var html_fb08a5f95a674b36b1da6d5152de25a4 = $(`<div id="html_fb08a5f95a674b36b1da6d5152de25a4" style="width: 100.0%; height: 100.0%;">klient 6 potrzebuje 735 jednostek towaru</div>`)[0];
+            popup_67955701cf0d4b1cb0f4216e1e2f6be7.setContent(html_fb08a5f95a674b36b1da6d5152de25a4);
+        
+
+        marker_258312671f3e43ee953b7785c5f48137.bindPopup(popup_67955701cf0d4b1cb0f4216e1e2f6be7)
+        ;
+
+        
+    
+    
+            var marker_964f023936694cfbb519f4cda0b6ac71 = L.marker(
+                [51.6455108, 16.094873],
+                {}
+            ).addTo(map_7512961ca88547e88fefa533b0b12ece);
+        
+    
+            var icon_5294e44dc6d54b8596cdc63f55a9d69b = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "blue", "prefix": "glyphicon"}
+            );
+            marker_964f023936694cfbb519f4cda0b6ac71.setIcon(icon_5294e44dc6d54b8596cdc63f55a9d69b);
+        
+    
+        var popup_63c940b5c0ed48fbb3f1a7bf58e6cae8 = L.popup({"maxWidth": "100%"});
+
+        
+            var html_de03220bcd494154a1fe318e4a476c3d = $(`<div id="html_de03220bcd494154a1fe318e4a476c3d" style="width: 100.0%; height: 100.0%;">klient 7 potrzebuje 1015 jednostek towaru</div>`)[0];
+            popup_63c940b5c0ed48fbb3f1a7bf58e6cae8.setContent(html_de03220bcd494154a1fe318e4a476c3d);
+        
+
+        marker_964f023936694cfbb519f4cda0b6ac71.bindPopup(popup_63c940b5c0ed48fbb3f1a7bf58e6cae8)
+        ;
+
+        
+    
+</script>

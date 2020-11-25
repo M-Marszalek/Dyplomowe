@@ -1,0 +1,688 @@
+<!DOCTYPE html>
+<head>    
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    
+        <script>
+            L_NO_TOUCH = false;
+            L_DISABLE_3D = false;
+        </script>
+    
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.6.0/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.6.0/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
+    <link rel="stylesheet" href="https://rawcdn.githack.com/python-visualization/folium/master/folium/templates/leaflet.awesome.rotate.css"/>
+    <style>html, body {width: 100%;height: 100%;margin: 0;padding: 0;}</style>
+    <style>#map {position:absolute;top:0;bottom:0;right:0;left:0;}</style>
+    
+            <meta name="viewport" content="width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+            <style>
+                #map_aea9a32c7c85465c92dca52ebea803c1 {
+                    position: relative;
+                    width: 100.0%;
+                    height: 100.0%;
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+            </style>
+        
+</head>
+<body>    
+    
+            <div class="folium-map" id="map_aea9a32c7c85465c92dca52ebea803c1" ></div>
+        
+</body>
+<script>    
+    
+            var map_aea9a32c7c85465c92dca52ebea803c1 = L.map(
+                "map_aea9a32c7c85465c92dca52ebea803c1",
+                {
+                    center: [51.138, 16.7294],
+                    crs: L.CRS.EPSG3857,
+                    zoom: 8,
+                    zoomControl: true,
+                    preferCanvas: false,
+                }
+            );
+
+            
+
+        
+    
+            var tile_layer_4ce06dbffa7846989dc1533a646e1960 = L.tileLayer(
+                "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
+                {"attribution": "Data by \u0026copy; \u003ca href=\"http://openstreetmap.org\"\u003eOpenStreetMap\u003c/a\u003e, under \u003ca href=\"http://www.openstreetmap.org/copyright\"\u003eODbL\u003c/a\u003e.", "detectRetina": false, "maxNativeZoom": 18, "maxZoom": 18, "minZoom": 0, "noWrap": false, "opacity": 1, "subdomains": "abc", "tms": false}
+            ).addTo(map_aea9a32c7c85465c92dca52ebea803c1);
+        
+    
+            var marker_008a11d04c2f4539930617650a87eda9 = L.marker(
+                [51.1641562, 16.1949928],
+                {}
+            ).addTo(map_aea9a32c7c85465c92dca52ebea803c1);
+        
+    
+            var icon_a70c6c516e9c40d3a7b19ce2b642544c = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "cadetblue", "prefix": "glyphicon"}
+            );
+            marker_008a11d04c2f4539930617650a87eda9.setIcon(icon_a70c6c516e9c40d3a7b19ce2b642544c);
+        
+    
+        var popup_57e473d519cf4aaaae92ffae56c01c31 = L.popup({"maxWidth": "100%"});
+
+        
+            var html_08883fab515f4fc583f5080e59b8aa2a = $(`<div id="html_08883fab515f4fc583f5080e59b8aa2a" style="width: 100.0%; height: 100.0%;">magazyn 0 produkuje 2000 jednostek towaru,  koszt utrzymania to: 61517</div>`)[0];
+            popup_57e473d519cf4aaaae92ffae56c01c31.setContent(html_08883fab515f4fc583f5080e59b8aa2a);
+        
+
+        marker_008a11d04c2f4539930617650a87eda9.bindPopup(popup_57e473d519cf4aaaae92ffae56c01c31)
+        ;
+
+        
+    
+    
+            var marker_99075482ad8a406382705fd8a6f74226 = L.marker(
+                [51.0989945, 16.9237728],
+                {}
+            ).addTo(map_aea9a32c7c85465c92dca52ebea803c1);
+        
+    
+            var icon_583f3818a2ad487a964fba2593873611 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "cadetblue", "prefix": "glyphicon"}
+            );
+            marker_99075482ad8a406382705fd8a6f74226.setIcon(icon_583f3818a2ad487a964fba2593873611);
+        
+    
+        var popup_28cfeb0b748d4dad8d87f474302a4dae = L.popup({"maxWidth": "100%"});
+
+        
+            var html_f7c6d74601dc4481b5eb54c090b7b2c6 = $(`<div id="html_f7c6d74601dc4481b5eb54c090b7b2c6" style="width: 100.0%; height: 100.0%;">magazyn 1 produkuje 1800 jednostek towaru,  koszt utrzymania to: 61718</div>`)[0];
+            popup_28cfeb0b748d4dad8d87f474302a4dae.setContent(html_f7c6d74601dc4481b5eb54c090b7b2c6);
+        
+
+        marker_99075482ad8a406382705fd8a6f74226.bindPopup(popup_28cfeb0b748d4dad8d87f474302a4dae)
+        ;
+
+        
+    
+    
+            var marker_ab794ad14e42465b95486eb1cb583f06 = L.marker(
+                [51.41146765, 16.175009612747367],
+                {}
+            ).addTo(map_aea9a32c7c85465c92dca52ebea803c1);
+        
+    
+            var icon_65cdc6dd0f03468a96d563f4ce8e5755 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "cadetblue", "prefix": "glyphicon"}
+            );
+            marker_ab794ad14e42465b95486eb1cb583f06.setIcon(icon_65cdc6dd0f03468a96d563f4ce8e5755);
+        
+    
+        var popup_d77b31f74bb9433cabee933d97b02212 = L.popup({"maxWidth": "100%"});
+
+        
+            var html_29da6a3a1d2449c1930c617032a01cb8 = $(`<div id="html_29da6a3a1d2449c1930c617032a01cb8" style="width: 100.0%; height: 100.0%;">magazyn 2 produkuje 1800 jednostek towaru,  koszt utrzymania to: 66419</div>`)[0];
+            popup_d77b31f74bb9433cabee933d97b02212.setContent(html_29da6a3a1d2449c1930c617032a01cb8);
+        
+
+        marker_ab794ad14e42465b95486eb1cb583f06.bindPopup(popup_d77b31f74bb9433cabee933d97b02212)
+        ;
+
+        
+    
+    
+            var marker_cbe09031026a4e15885208847667c105 = L.marker(
+                [51.21345625, 17.403753463553954],
+                {}
+            ).addTo(map_aea9a32c7c85465c92dca52ebea803c1);
+        
+    
+            var icon_e809333225cf4926a52c6fd3745baf04 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "cadetblue", "prefix": "glyphicon"}
+            );
+            marker_cbe09031026a4e15885208847667c105.setIcon(icon_e809333225cf4926a52c6fd3745baf04);
+        
+    
+        var popup_786e5f64d4fb4ef896acd66fd8950052 = L.popup({"maxWidth": "100%"});
+
+        
+            var html_ae98d667fcaa4934a04724bb2cce5567 = $(`<div id="html_ae98d667fcaa4934a04724bb2cce5567" style="width: 100.0%; height: 100.0%;">magazyn 3 produkuje 2800 jednostek towaru,  koszt utrzymania to: 58762</div>`)[0];
+            popup_786e5f64d4fb4ef896acd66fd8950052.setContent(html_ae98d667fcaa4934a04724bb2cce5567);
+        
+
+        marker_cbe09031026a4e15885208847667c105.bindPopup(popup_786e5f64d4fb4ef896acd66fd8950052)
+        ;
+
+        
+    
+    
+            var marker_a72d69e0a05a464399fac4ec2bf4dca6 = L.marker(
+                [50.8136783, 16.2796224],
+                {}
+            ).addTo(map_aea9a32c7c85465c92dca52ebea803c1);
+        
+    
+            var icon_0fa43737459544abae0c62207e7399d1 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "cadetblue", "prefix": "glyphicon"}
+            );
+            marker_a72d69e0a05a464399fac4ec2bf4dca6.setIcon(icon_0fa43737459544abae0c62207e7399d1);
+        
+    
+        var popup_bcf4bb58ada3411fb835885cebc4e00d = L.popup({"maxWidth": "100%"});
+
+        
+            var html_ac2f7d3bdd0148d6b7836a0c9c615d8a = $(`<div id="html_ac2f7d3bdd0148d6b7836a0c9c615d8a" style="width: 100.0%; height: 100.0%;">magazyn 4 produkuje 1600 jednostek towaru,  koszt utrzymania to: 69057</div>`)[0];
+            popup_bcf4bb58ada3411fb835885cebc4e00d.setContent(html_ac2f7d3bdd0148d6b7836a0c9c615d8a);
+        
+
+        marker_a72d69e0a05a464399fac4ec2bf4dca6.bindPopup(popup_bcf4bb58ada3411fb835885cebc4e00d)
+        ;
+
+        
+    
+    
+            var marker_8e0696870fbc436495dac1cc1e9dc517 = L.marker(
+                [50.8463719, 16.4986478],
+                {}
+            ).addTo(map_aea9a32c7c85465c92dca52ebea803c1);
+        
+    
+            var icon_4618020a368440629519291ecb3e3992 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "cadetblue", "prefix": "glyphicon"}
+            );
+            marker_8e0696870fbc436495dac1cc1e9dc517.setIcon(icon_4618020a368440629519291ecb3e3992);
+        
+    
+        var popup_4d7dcde2c2a642938600e8ea5b6f5a58 = L.popup({"maxWidth": "100%"});
+
+        
+            var html_14baa0aeae7d477a92b9c10aa72281a2 = $(`<div id="html_14baa0aeae7d477a92b9c10aa72281a2" style="width: 100.0%; height: 100.0%;">magazyn 5 produkuje 2000 jednostek towaru,  koszt utrzymania to: 63704</div>`)[0];
+            popup_4d7dcde2c2a642938600e8ea5b6f5a58.setContent(html_14baa0aeae7d477a92b9c10aa72281a2);
+        
+
+        marker_8e0696870fbc436495dac1cc1e9dc517.bindPopup(popup_4d7dcde2c2a642938600e8ea5b6f5a58)
+        ;
+
+        
+    
+    
+            var marker_ac5fb719d7b848d1b08efaafdd8648b3 = L.marker(
+                [51.153854499999994, 17.160422075995754],
+                {}
+            ).addTo(map_aea9a32c7c85465c92dca52ebea803c1);
+        
+    
+            var icon_0110f77e427d4da89d7e2fea0f5cc43a = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "cadetblue", "prefix": "glyphicon"}
+            );
+            marker_ac5fb719d7b848d1b08efaafdd8648b3.setIcon(icon_0110f77e427d4da89d7e2fea0f5cc43a);
+        
+    
+        var popup_ca56701c600e4b6e8e5336613176d139 = L.popup({"maxWidth": "100%"});
+
+        
+            var html_040d471acc8d4e6eb53a7ed46d35a9be = $(`<div id="html_040d471acc8d4e6eb53a7ed46d35a9be" style="width: 100.0%; height: 100.0%;">magazyn 6 produkuje 2800 jednostek towaru,  koszt utrzymania to: 69364</div>`)[0];
+            popup_ca56701c600e4b6e8e5336613176d139.setContent(html_040d471acc8d4e6eb53a7ed46d35a9be);
+        
+
+        marker_ac5fb719d7b848d1b08efaafdd8648b3.bindPopup(popup_ca56701c600e4b6e8e5336613176d139)
+        ;
+
+        
+    
+    
+            var marker_26aa6769c9e0495f8257a952a6ce1cc2 = L.marker(
+                [51.0313279, 16.760166919252534],
+                {}
+            ).addTo(map_aea9a32c7c85465c92dca52ebea803c1);
+        
+    
+            var icon_2829910afbd8436787ccd545acbac219 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "cadetblue", "prefix": "glyphicon"}
+            );
+            marker_26aa6769c9e0495f8257a952a6ce1cc2.setIcon(icon_2829910afbd8436787ccd545acbac219);
+        
+    
+        var popup_953955c654e949a08bfaa0cdef32479b = L.popup({"maxWidth": "100%"});
+
+        
+            var html_1abdb484e4ca49c9a26a4ff673091f2a = $(`<div id="html_1abdb484e4ca49c9a26a4ff673091f2a" style="width: 100.0%; height: 100.0%;">magazyn 7 produkuje 2200 jednostek towaru,  koszt utrzymania to: 58123</div>`)[0];
+            popup_953955c654e949a08bfaa0cdef32479b.setContent(html_1abdb484e4ca49c9a26a4ff673091f2a);
+        
+
+        marker_26aa6769c9e0495f8257a952a6ce1cc2.bindPopup(popup_953955c654e949a08bfaa0cdef32479b)
+        ;
+
+        
+    
+    
+            var marker_903125486e2641a08a8e24b3a950b1b3 = L.marker(
+                [50.6897544, 16.6373534],
+                {}
+            ).addTo(map_aea9a32c7c85465c92dca52ebea803c1);
+        
+    
+            var icon_fe877bb527ff40d999c928ef0befb647 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "cadetblue", "prefix": "glyphicon"}
+            );
+            marker_903125486e2641a08a8e24b3a950b1b3.setIcon(icon_fe877bb527ff40d999c928ef0befb647);
+        
+    
+        var popup_bbecb6095cc647ceba314c1c77a69367 = L.popup({"maxWidth": "100%"});
+
+        
+            var html_469a8cfc8c7e4fa48b2b01636bb6bcbb = $(`<div id="html_469a8cfc8c7e4fa48b2b01636bb6bcbb" style="width: 100.0%; height: 100.0%;">magazyn 8 produkuje 2500 jednostek towaru,  koszt utrzymania to: 55777</div>`)[0];
+            popup_bbecb6095cc647ceba314c1c77a69367.setContent(html_469a8cfc8c7e4fa48b2b01636bb6bcbb);
+        
+
+        marker_903125486e2641a08a8e24b3a950b1b3.bindPopup(popup_bbecb6095cc647ceba314c1c77a69367)
+        ;
+
+        
+    
+    
+            var marker_beff5556b322408f8e0e9aa2ffc28618 = L.marker(
+                [51.0655505, 15.3753102],
+                {}
+            ).addTo(map_aea9a32c7c85465c92dca52ebea803c1);
+        
+    
+            var icon_7279dc1819e74625a20cce89ec0700e3 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "cadetblue", "prefix": "glyphicon"}
+            );
+            marker_beff5556b322408f8e0e9aa2ffc28618.setIcon(icon_7279dc1819e74625a20cce89ec0700e3);
+        
+    
+        var popup_d06e3b31c60a4348b34450765e918c88 = L.popup({"maxWidth": "100%"});
+
+        
+            var html_aeabdafa54e341c4bed077912baaa126 = $(`<div id="html_aeabdafa54e341c4bed077912baaa126" style="width: 100.0%; height: 100.0%;">magazyn 9 produkuje 1700 jednostek towaru,  koszt utrzymania to: 67662</div>`)[0];
+            popup_d06e3b31c60a4348b34450765e918c88.setContent(html_aeabdafa54e341c4bed077912baaa126);
+        
+
+        marker_beff5556b322408f8e0e9aa2ffc28618.bindPopup(popup_d06e3b31c60a4348b34450765e918c88)
+        ;
+
+        
+    
+    
+            var marker_b48cf2f72b1e4287a587642b93c23957 = L.marker(
+                [51.1372949, 17.081214],
+                {}
+            ).addTo(map_aea9a32c7c85465c92dca52ebea803c1);
+        
+    
+            var icon_3f21a7e880e0442c856d8c78bd39fef5 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "blue", "prefix": "glyphicon"}
+            );
+            marker_b48cf2f72b1e4287a587642b93c23957.setIcon(icon_3f21a7e880e0442c856d8c78bd39fef5);
+        
+    
+        var popup_d862120e959048188a23e9fcfb23db07 = L.popup({"maxWidth": "100%"});
+
+        
+            var html_900329a89c5543e1863ab1ca0bc03252 = $(`<div id="html_900329a89c5543e1863ab1ca0bc03252" style="width: 100.0%; height: 100.0%;">klient 0 potrzebuje 1350 jednostek towaru</div>`)[0];
+            popup_d862120e959048188a23e9fcfb23db07.setContent(html_900329a89c5543e1863ab1ca0bc03252);
+        
+
+        marker_b48cf2f72b1e4287a587642b93c23957.bindPopup(popup_d862120e959048188a23e9fcfb23db07)
+        ;
+
+        
+    
+    
+            var marker_c68b456666c94b5c9a9d057fd61b4d68 = L.marker(
+                [51.0762693, 17.041688],
+                {}
+            ).addTo(map_aea9a32c7c85465c92dca52ebea803c1);
+        
+    
+            var icon_021c58a05ea049299e79e0b744bc709e = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "blue", "prefix": "glyphicon"}
+            );
+            marker_c68b456666c94b5c9a9d057fd61b4d68.setIcon(icon_021c58a05ea049299e79e0b744bc709e);
+        
+    
+        var popup_d7399e4c19f1481f8b3fbdd783f6aea8 = L.popup({"maxWidth": "100%"});
+
+        
+            var html_0ddd048fdc0f477080aec892cb570dc7 = $(`<div id="html_0ddd048fdc0f477080aec892cb570dc7" style="width: 100.0%; height: 100.0%;">klient 1 potrzebuje 800 jednostek towaru</div>`)[0];
+            popup_d7399e4c19f1481f8b3fbdd783f6aea8.setContent(html_0ddd048fdc0f477080aec892cb570dc7);
+        
+
+        marker_c68b456666c94b5c9a9d057fd61b4d68.bindPopup(popup_d7399e4c19f1481f8b3fbdd783f6aea8)
+        ;
+
+        
+    
+    
+            var marker_19d93e4f62de4ee8b90e2305d7b1c9a1 = L.marker(
+                [51.1105807, 17.0155216],
+                {}
+            ).addTo(map_aea9a32c7c85465c92dca52ebea803c1);
+        
+    
+            var icon_b93210c3e650474cac6a8e2e6e9f58e7 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "blue", "prefix": "glyphicon"}
+            );
+            marker_19d93e4f62de4ee8b90e2305d7b1c9a1.setIcon(icon_b93210c3e650474cac6a8e2e6e9f58e7);
+        
+    
+        var popup_31f03a5319aa409d8261340c6964031c = L.popup({"maxWidth": "100%"});
+
+        
+            var html_73b30d28a42e46e8b395097f932716a7 = $(`<div id="html_73b30d28a42e46e8b395097f932716a7" style="width: 100.0%; height: 100.0%;">klient 2 potrzebuje 1300 jednostek towaru</div>`)[0];
+            popup_31f03a5319aa409d8261340c6964031c.setContent(html_73b30d28a42e46e8b395097f932716a7);
+        
+
+        marker_19d93e4f62de4ee8b90e2305d7b1c9a1.bindPopup(popup_31f03a5319aa409d8261340c6964031c)
+        ;
+
+        
+    
+    
+            var marker_fa687de89f684fef86d73468df0a79de = L.marker(
+                [51.1856203, 16.1703238],
+                {}
+            ).addTo(map_aea9a32c7c85465c92dca52ebea803c1);
+        
+    
+            var icon_72ad36f613f045e392ce95cfd12b7730 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "blue", "prefix": "glyphicon"}
+            );
+            marker_fa687de89f684fef86d73468df0a79de.setIcon(icon_72ad36f613f045e392ce95cfd12b7730);
+        
+    
+        var popup_8e34dbf81a824300a1e832519a24ae1d = L.popup({"maxWidth": "100%"});
+
+        
+            var html_efefb43e75354c3a80f2d94f1f8b7e90 = $(`<div id="html_efefb43e75354c3a80f2d94f1f8b7e90" style="width: 100.0%; height: 100.0%;">klient 3 potrzebuje 1250 jednostek towaru</div>`)[0];
+            popup_8e34dbf81a824300a1e832519a24ae1d.setContent(html_efefb43e75354c3a80f2d94f1f8b7e90);
+        
+
+        marker_fa687de89f684fef86d73468df0a79de.bindPopup(popup_8e34dbf81a824300a1e832519a24ae1d)
+        ;
+
+        
+    
+    
+            var marker_84c5a2f0de29428dbd65510ea684e95c = L.marker(
+                [50.8217747, 16.2865078],
+                {}
+            ).addTo(map_aea9a32c7c85465c92dca52ebea803c1);
+        
+    
+            var icon_ac27c364ab2a479593f993605ece9dc5 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "blue", "prefix": "glyphicon"}
+            );
+            marker_84c5a2f0de29428dbd65510ea684e95c.setIcon(icon_ac27c364ab2a479593f993605ece9dc5);
+        
+    
+        var popup_fba2adff11de41a5b4762d4ce18d9f97 = L.popup({"maxWidth": "100%"});
+
+        
+            var html_f037c08c549249de9aa528702fe7c195 = $(`<div id="html_f037c08c549249de9aa528702fe7c195" style="width: 100.0%; height: 100.0%;">klient 4 potrzebuje 750 jednostek towaru</div>`)[0];
+            popup_fba2adff11de41a5b4762d4ce18d9f97.setContent(html_f037c08c549249de9aa528702fe7c195);
+        
+
+        marker_84c5a2f0de29428dbd65510ea684e95c.bindPopup(popup_fba2adff11de41a5b4762d4ce18d9f97)
+        ;
+
+        
+    
+    
+            var marker_656b11dae863402c978d35e1c8aed17c = L.marker(
+                [50.7653085, 16.2639695],
+                {}
+            ).addTo(map_aea9a32c7c85465c92dca52ebea803c1);
+        
+    
+            var icon_baed6ff9836e4b5e8f362c463411819c = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "blue", "prefix": "glyphicon"}
+            );
+            marker_656b11dae863402c978d35e1c8aed17c.setIcon(icon_baed6ff9836e4b5e8f362c463411819c);
+        
+    
+        var popup_7f7f8726e79b42b6a140cdc1ed236bdd = L.popup({"maxWidth": "100%"});
+
+        
+            var html_e0c8f9f8d7444fbcb021185d7b1a7745 = $(`<div id="html_e0c8f9f8d7444fbcb021185d7b1a7745" style="width: 100.0%; height: 100.0%;">klient 5 potrzebuje 1350 jednostek towaru</div>`)[0];
+            popup_7f7f8726e79b42b6a140cdc1ed236bdd.setContent(html_e0c8f9f8d7444fbcb021185d7b1a7745);
+        
+
+        marker_656b11dae863402c978d35e1c8aed17c.bindPopup(popup_7f7f8726e79b42b6a140cdc1ed236bdd)
+        ;
+
+        
+    
+    
+            var marker_fd7426767db149faad245ae818e5cea6 = L.marker(
+                [50.9169312, 15.7553796],
+                {}
+            ).addTo(map_aea9a32c7c85465c92dca52ebea803c1);
+        
+    
+            var icon_ba9de3926c3a4f85a884f829b8ae0f46 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "blue", "prefix": "glyphicon"}
+            );
+            marker_fd7426767db149faad245ae818e5cea6.setIcon(icon_ba9de3926c3a4f85a884f829b8ae0f46);
+        
+    
+        var popup_84acbc03663c4d8b98fed220bc94914e = L.popup({"maxWidth": "100%"});
+
+        
+            var html_70a13d826c8f4cecb0527d30a8e50b87 = $(`<div id="html_70a13d826c8f4cecb0527d30a8e50b87" style="width: 100.0%; height: 100.0%;">klient 6 potrzebuje 750 jednostek towaru</div>`)[0];
+            popup_84acbc03663c4d8b98fed220bc94914e.setContent(html_70a13d826c8f4cecb0527d30a8e50b87);
+        
+
+        marker_fd7426767db149faad245ae818e5cea6.bindPopup(popup_84acbc03663c4d8b98fed220bc94914e)
+        ;
+
+        
+    
+    
+            var marker_650cffb53bdd4cf58d5d53d7c50e1c73 = L.marker(
+                [51.6480798, 16.0762583],
+                {}
+            ).addTo(map_aea9a32c7c85465c92dca52ebea803c1);
+        
+    
+            var icon_3f66d0a014d64b34a4c14cdea62cb562 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "blue", "prefix": "glyphicon"}
+            );
+            marker_650cffb53bdd4cf58d5d53d7c50e1c73.setIcon(icon_3f66d0a014d64b34a4c14cdea62cb562);
+        
+    
+        var popup_bf877ba702f04b16b0272376a0f20182 = L.popup({"maxWidth": "100%"});
+
+        
+            var html_f30b8ad75ef8431faf09e087afe09357 = $(`<div id="html_f30b8ad75ef8431faf09e087afe09357" style="width: 100.0%; height: 100.0%;">klient 7 potrzebuje 850 jednostek towaru</div>`)[0];
+            popup_bf877ba702f04b16b0272376a0f20182.setContent(html_f30b8ad75ef8431faf09e087afe09357);
+        
+
+        marker_650cffb53bdd4cf58d5d53d7c50e1c73.bindPopup(popup_bf877ba702f04b16b0272376a0f20182)
+        ;
+
+        
+    
+    
+            var marker_a44f427bb79548708277b86f20d26c16 = L.marker(
+                [51.3897464, 16.2159946],
+                {}
+            ).addTo(map_aea9a32c7c85465c92dca52ebea803c1);
+        
+    
+            var icon_85d2c3b3159f433eb4096d40118efe19 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "blue", "prefix": "glyphicon"}
+            );
+            marker_a44f427bb79548708277b86f20d26c16.setIcon(icon_85d2c3b3159f433eb4096d40118efe19);
+        
+    
+        var popup_3a2acdd0bd2a4c4fa79cdba69daf5da6 = L.popup({"maxWidth": "100%"});
+
+        
+            var html_4c4bb3e78dc9448285d7461f7376e522 = $(`<div id="html_4c4bb3e78dc9448285d7461f7376e522" style="width: 100.0%; height: 100.0%;">klient 8 potrzebuje 750 jednostek towaru</div>`)[0];
+            popup_3a2acdd0bd2a4c4fa79cdba69daf5da6.setContent(html_4c4bb3e78dc9448285d7461f7376e522);
+        
+
+        marker_a44f427bb79548708277b86f20d26c16.bindPopup(popup_3a2acdd0bd2a4c4fa79cdba69daf5da6)
+        ;
+
+        
+    
+    
+            var marker_64cfe6f578a34ae5a2a703df558b2048 = L.marker(
+                [51.2555311, 15.5670046],
+                {}
+            ).addTo(map_aea9a32c7c85465c92dca52ebea803c1);
+        
+    
+            var icon_8cae557e61354e3589fcd8a30994cbd1 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "blue", "prefix": "glyphicon"}
+            );
+            marker_64cfe6f578a34ae5a2a703df558b2048.setIcon(icon_8cae557e61354e3589fcd8a30994cbd1);
+        
+    
+        var popup_607beac83b834656bfc29d2d9cc3f255 = L.popup({"maxWidth": "100%"});
+
+        
+            var html_bc353ace45304962ace7906c61ce73b1 = $(`<div id="html_bc353ace45304962ace7906c61ce73b1" style="width: 100.0%; height: 100.0%;">klient 9 potrzebuje 1500 jednostek towaru</div>`)[0];
+            popup_607beac83b834656bfc29d2d9cc3f255.setContent(html_bc353ace45304962ace7906c61ce73b1);
+        
+
+        marker_64cfe6f578a34ae5a2a703df558b2048.bindPopup(popup_607beac83b834656bfc29d2d9cc3f255)
+        ;
+
+        
+    
+    
+            var marker_297b0002f99b423e87ac2fe7f3fc7e4b = L.marker(
+                [50.9369165, 17.2986933],
+                {}
+            ).addTo(map_aea9a32c7c85465c92dca52ebea803c1);
+        
+    
+            var icon_75fc4db13ad34dd4882e60a46998e5b4 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "blue", "prefix": "glyphicon"}
+            );
+            marker_297b0002f99b423e87ac2fe7f3fc7e4b.setIcon(icon_75fc4db13ad34dd4882e60a46998e5b4);
+        
+    
+        var popup_710960e61fb8444496def6ba6aa3e462 = L.popup({"maxWidth": "100%"});
+
+        
+            var html_44e92158394441d8abbbe5c192bbbfa6 = $(`<div id="html_44e92158394441d8abbbe5c192bbbfa6" style="width: 100.0%; height: 100.0%;">klient 10 potrzebuje 1050 jednostek towaru</div>`)[0];
+            popup_710960e61fb8444496def6ba6aa3e462.setContent(html_44e92158394441d8abbbe5c192bbbfa6);
+        
+
+        marker_297b0002f99b423e87ac2fe7f3fc7e4b.bindPopup(popup_710960e61fb8444496def6ba6aa3e462)
+        ;
+
+        
+    
+    
+            var marker_e055864a62ed41979ada67ed374876ab = L.marker(
+                [50.7329869, 16.6471849],
+                {}
+            ).addTo(map_aea9a32c7c85465c92dca52ebea803c1);
+        
+    
+            var icon_0a09beb605584f059fc30659298fe5b9 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "blue", "prefix": "glyphicon"}
+            );
+            marker_e055864a62ed41979ada67ed374876ab.setIcon(icon_0a09beb605584f059fc30659298fe5b9);
+        
+    
+        var popup_fb5a8f7d8ce64cc0b8a27de82f8010ba = L.popup({"maxWidth": "100%"});
+
+        
+            var html_d6ebb62b3a0843da8c4af12628574abb = $(`<div id="html_d6ebb62b3a0843da8c4af12628574abb" style="width: 100.0%; height: 100.0%;">klient 11 potrzebuje 900 jednostek towaru</div>`)[0];
+            popup_fb5a8f7d8ce64cc0b8a27de82f8010ba.setContent(html_d6ebb62b3a0843da8c4af12628574abb);
+        
+
+        marker_e055864a62ed41979ada67ed374876ab.bindPopup(popup_fb5a8f7d8ce64cc0b8a27de82f8010ba)
+        ;
+
+        
+    
+    
+            var marker_948afb01601749d3947dd309f4b2cf89 = L.marker(
+                [50.785489, 16.0258385],
+                {}
+            ).addTo(map_aea9a32c7c85465c92dca52ebea803c1);
+        
+    
+            var icon_1a125a477e05473fbcc068630692ef41 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "blue", "prefix": "glyphicon"}
+            );
+            marker_948afb01601749d3947dd309f4b2cf89.setIcon(icon_1a125a477e05473fbcc068630692ef41);
+        
+    
+        var popup_2a13314659d3428d84c43ca08b4f6edc = L.popup({"maxWidth": "100%"});
+
+        
+            var html_4e8ce0a3e7f94cafad7e2f860cbefaab = $(`<div id="html_4e8ce0a3e7f94cafad7e2f860cbefaab" style="width: 100.0%; height: 100.0%;">klient 12 potrzebuje 1350 jednostek towaru</div>`)[0];
+            popup_2a13314659d3428d84c43ca08b4f6edc.setContent(html_4e8ce0a3e7f94cafad7e2f860cbefaab);
+        
+
+        marker_948afb01601749d3947dd309f4b2cf89.bindPopup(popup_2a13314659d3428d84c43ca08b4f6edc)
+        ;
+
+        
+    
+    
+            var marker_c43ea1896f4a444abdc3981c8f83294a = L.marker(
+                [51.2152685, 17.4069516],
+                {}
+            ).addTo(map_aea9a32c7c85465c92dca52ebea803c1);
+        
+    
+            var icon_3aedf4e5f5824f73b97a584b4ab810bd = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "blue", "prefix": "glyphicon"}
+            );
+            marker_c43ea1896f4a444abdc3981c8f83294a.setIcon(icon_3aedf4e5f5824f73b97a584b4ab810bd);
+        
+    
+        var popup_a6a2f75a26584722b91f95ac96134750 = L.popup({"maxWidth": "100%"});
+
+        
+            var html_8371a973101e4e778ae4da5bf31ace72 = $(`<div id="html_8371a973101e4e778ae4da5bf31ace72" style="width: 100.0%; height: 100.0%;">klient 13 potrzebuje 900 jednostek towaru</div>`)[0];
+            popup_a6a2f75a26584722b91f95ac96134750.setContent(html_8371a973101e4e778ae4da5bf31ace72);
+        
+
+        marker_c43ea1896f4a444abdc3981c8f83294a.bindPopup(popup_a6a2f75a26584722b91f95ac96134750)
+        ;
+
+        
+    
+    
+            var marker_8c8e4ce77aae4a478f27ad25d6f79db8 = L.marker(
+                [51.1574131, 15.0335237],
+                {}
+            ).addTo(map_aea9a32c7c85465c92dca52ebea803c1);
+        
+    
+            var icon_3fa5d87c178b44db836929701ae17dc8 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "blue", "prefix": "glyphicon"}
+            );
+            marker_8c8e4ce77aae4a478f27ad25d6f79db8.setIcon(icon_3fa5d87c178b44db836929701ae17dc8);
+        
+    
+        var popup_72d5325f10a949babbeb7a2385589b57 = L.popup({"maxWidth": "100%"});
+
+        
+            var html_d7b09980d4c544f9a53504784154fd1e = $(`<div id="html_d7b09980d4c544f9a53504784154fd1e" style="width: 100.0%; height: 100.0%;">klient 14 potrzebuje 750 jednostek towaru</div>`)[0];
+            popup_72d5325f10a949babbeb7a2385589b57.setContent(html_d7b09980d4c544f9a53504784154fd1e);
+        
+
+        marker_8c8e4ce77aae4a478f27ad25d6f79db8.bindPopup(popup_72d5325f10a949babbeb7a2385589b57)
+        ;
+
+        
+    
+</script>
