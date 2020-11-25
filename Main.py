@@ -1,5 +1,4 @@
 import numpy as np
-import random as rn
 import pulp as pu
 import folium
 import osrm
@@ -66,7 +65,7 @@ def distance_matrix(faci, cost):
             dist[f, c] = get_distance(response)/1000
             globals()['trip%s' % (str(f)+str(c))] = route_coords(response)
             step += 1
-            print(step)
+            print('%.2f' % ((step/fullmatrix)* 100) + " %")
     return dist
 
 
@@ -81,12 +80,12 @@ start_time = time.time()
 
 client = osrm.Client(host='http://router.project-osrm.org', profile='car')
 
-with open("TestCosL.csv", "r", newline='') as csvfile1:
+with open("Test\TestCosL.csv", "r", newline='') as csvfile1:
     readercos = list(csv.reader(csvfile1, delimiter='|'))
 readercos = np.array(readercos)
 cosadress, cosdata = dataset(readercos)
 
-with open("TestFacL.csv", "r", newline='') as csvfile1:
+with open("Test\TestFacL.csv", "r", newline='') as csvfile1:
     readerfac = list(csv.reader(csvfile1, delimiter='|'))
 readerfac = np.array(readerfac)
 facadress, facdata = dataset(readerfac)
@@ -94,7 +93,7 @@ facadress, facdata = dataset(readerfac)
 u = np.array(facdata[:, 0])
 f = np.array(facdata[:, 1])
 d = np.array(cosdata[:, 0])
-print(u,f,d)
+print(u, f, d)
 # sum of demand/supply
 
 supp = sum_coll(facdata, 0)
@@ -108,6 +107,8 @@ else:
 
 facadress = get_coordinats(facadress)
 cosadress = get_coordinats(cosadress)
+
+print(cosadress, cosdata)
 
 facility = np.hstack((facadress, facdata))
 costumers = np.hstack((cosadress, cosdata))
@@ -125,7 +126,7 @@ for i in range(costumers.shape[0]):
      folium.Marker((costumers[i, :2]),
         popup=('klient %i potrzebuje %i jednostek towaru' %(i, int(d[i]))),
         icon=folium.Icon(color='blue')).add_to(data_map)
-data_map.save('Data.html')
+data_map.save('Test\DataL_Lidl.html')
 
 facadress = replace_coll(facadress)
 cosadress = replace_coll(cosadress)
@@ -217,7 +218,7 @@ for i in range(fac_cos.shape[0]):
     print(tripid)
     plugins.AntPath(globals()['trip%s' % tripid], color='blue').add_to(solve_map)
 
-solve_map.save('Solve.html')
+solve_map.save('Test/SolveL_Lidl.html')
 
 print("--- %s seconds ---" % (time.time() - start_time))
 print("fajnie było")
