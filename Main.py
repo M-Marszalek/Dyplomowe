@@ -23,7 +23,11 @@ def get_distance(resp1):
 def get_coordinats(adreses):
     coordinats = []
     for i in range(adreses.shape[0]):
-        place = geocoder.osm(adreses[i])
+        msc = None
+        while msc == None:
+            place = geocoder.osm(adreses[i])
+            msc = place.latlng
+            print(adreses[i], msc)
         coordinats.append(place.latlng)
     return np.array(coordinats)
 
@@ -38,7 +42,13 @@ def route_coords(resp1):
         a[i, 1] = resp5[i, 0]
     return a
 
-def replace_coll(db):
+def sum_col(base, col_no):
+    sumc = 0
+    for k in range(len(base[:, 0])):
+        sumc += (base[1, col_no])
+    return sumc
+
+def replace_col(db):
     dbd = db
     for rows in range(db.shape[0]):
         a = db[rows, 1]
@@ -47,16 +57,9 @@ def replace_coll(db):
     print(dbd, db)
     return db
 
-def sum_coll(base, col_no):
-    sumc = 0
-    for k in range(len(base[:, 0])):
-        sumc += (base[1, col_no])
-    return sumc
-
 def distance_matrix(faci, cost):
     step = 0
     fullmatrix = faci.shape[0]*cost.shape[0]
-    print(fullmatrix)
     dist = np.zeros((faci.shape[0], cost.shape[0]))
     for c in range(cost.shape[0]):
         for f in range(faci.shape[0]):
@@ -68,6 +71,15 @@ def distance_matrix(faci, cost):
             print('%.2f' % ((step/fullmatrix)* 100) + " %")
     return dist
 
+def set_center(places):
+    lat = places[:, 0]
+    lng = places[:, 1]
+    minlat = min(lat)
+    minlng = min(lng)
+    maxlat = max(lat)
+    maxlng = max(lng)
+    #size = abs(maxlat - minlat) * abs(maxlng - minlng)
+    return [((minlat+maxlat)/2), ((minlng+maxlng)/2)]
 
 def dataset(cos):
     adress = cos[:, :1]
@@ -75,7 +87,6 @@ def dataset(cos):
     placeprop = placeprop.astype('float')
     return adress, placeprop
 
-print('Hello world')
 start_time = time.time()
 
 client = osrm.Client(host='http://router.project-osrm.org', profile='car')
@@ -90,33 +101,24 @@ with open("Test\TestFacL.csv", "r", newline='') as csvfile1:
 readerfac = np.array(readerfac)
 facadress, facdata = dataset(readerfac)
 
-u = np.array(facdata[:, 0])
-f = np.array(facdata[:, 1])
-d = np.array(cosdata[:, 0])
-print(u, f, d)
-# sum of demand/supply
+cosadress = get_coordinats(cosadress)
+facadress = get_coordinats(facadress)
 
-supp = sum_coll(facdata, 0)
-dem = sum_coll(cosdata, 0)
-print("popyt:", dem)
-print("podaż:", supp)
+# sum of demand/supply
+supp = sum_col(facdata, 0)
+dem = sum_col(cosdata, 0)
 if dem>supp:
     print("brak optymalnego rozwiązania")
+    exit(0)
 else:
-    print("istnieje optymalne rozwiazanie")
-
-facadress = get_coordinats(facadress)
-cosadress = get_coordinats(cosadress)
-
-print(cosadress, cosdata)
+    print("istnieje optymalne rozwiązanie")
 
 facility = np.hstack((facadress, facdata))
 costumers = np.hstack((cosadress, cosdata))
 
-print(facility, costumers)
-# cost
+center = set_center(np.vstack((cosadress, facadress)))
 
-data_map = folium.Map([51.1380, 16.7294], zoom_start=8)
+data_map = folium.Map(center, zoom_start=8)
 
 for i in range(facility.shape[0]):
      folium.Marker((facility[i, 0], facility[i,1]),
@@ -124,28 +126,31 @@ for i in range(facility.shape[0]):
         icon=folium.Icon(color='cadetblue')).add_to(data_map)
 for i in range(costumers.shape[0]):
      folium.Marker((costumers[i, :2]),
-        popup=('klient %i potrzebuje %i jednostek towaru' %(i, int(d[i]))),
+        popup=('punkt dystrybucji %i potrzebuje %i jednostek towaru' %(i, int(costumers[i, 2]))),
         icon=folium.Icon(color='blue')).add_to(data_map)
 data_map.save('Test\DataL_Lidl.html')
 
-facadress = replace_coll(facadress)
-cosadress = replace_coll(cosadress)
+facadress = replace_col(facadress)
+cosadress = replace_col(cosadress)
 
 distance = distance_matrix(facadress, cosadress)
-print(distance)
+
+u = np.array(facdata[:, 0])
+f = np.array(facdata[:, 1])
+d = np.array(cosdata[:, 0])
 
 # solver
 
 problem = pu.LpProblem("FacLoc", pu.LpMinimize)
 
-# zmienne dec
+# zmienne decyzyjne
 
 y = pu.LpVariable.dicts("y",
                         [(i, j) for i in range(facility.shape[0])
                         for j in range(costumers.shape[0])], 0, 1, pu.LpBinary)
 x = pu.LpVariable.dicts("x", range(facility.shape[0]), 0, 1, pu.LpBinary)
 
-# funkcja
+# funkcja celu
 
 
 problem += (pu.lpSum(f[i] * x[i] for i in range(facility.shape[0]))
@@ -169,43 +174,40 @@ ya = np.zeros(np.shape(distance))
 xa = np.zeros(facility.shape[0])
 for i in range(facility.shape[0]):
     xa[i] = x[i].varValue
-    globals()['facility%s' % i] = 'Magazyn ' + str(i) + ' obsługuje klientów: '
+    globals()['facility%s' % i] = 'Magazyn ' + str(i+1) + ' obsługuje punkty dystrybucji: '
     for j in range(costumers.shape[0]):
-
         ya[i, j] = y[i, j].varValue
         if ya[i, j] > 0:
-            globals()['facility%s' % i] += str(j)+', '
-            globals()['costumer%s' % j] = 'klient ' + str(j) + ' jest obsługiwany przez magazyn: '+ str(i)
+            globals()['facility%s' % i] += str(j+1)+', '
+            globals()['costumer%s' % j] = 'punkt dystrybucji ' + str(j) + ' jest obsługiwany przez magazyn: '+ str(i)
             fac_cos.append([i,j])
     globals()['facility%s' % i] = globals()['facility%s' % i][:-2]
-
 fac_cos = np.array(fac_cos)
+
 print(xa, "\n", ya)
 print(fac_cos)
 
-
-great = []
+good = []
 bad = []
 lpg = []
 lpb = []
 for lp in range(facility.shape[0]):
     if xa[lp] > 0:
-        great.append([facility[lp, 0], facility[lp, 1]])
+        good.append([facility[lp, 0], facility[lp, 1]])
         lpg.append(lp)
     else:
         bad.append([facility[lp, 0], facility[lp, 1]])
         lpb.append(lp)
-
-great = (np.array(great))
+good = (np.array(good))
 bad = (np.array(bad))
 
 
-print(great, '\nclosed:\n', bad)
+print(good, '\nclosed:\n', bad)
 
-solve_map = folium.Map([51.1380, 16.7294], zoom_start=8)
+solve_map = folium.Map(center, zoom_start=8)
 
-for i in range(great.shape[0]):
-     folium.Marker((great[i, :]), popup=globals()['facility%s' % lpg[i]],
+for i in range(good.shape[0]):
+     folium.Marker((good[i, :]), popup=globals()['facility%s' % lpg[i]],
                    icon=folium.Icon(color='green')).add_to(solve_map)
 for i in range(bad.shape[0]):
      folium.Marker((bad[i, :]), popup='Magazyn %i jest zamkniety' % lpb[i],
@@ -218,7 +220,22 @@ for i in range(fac_cos.shape[0]):
     print(tripid)
     plugins.AntPath(globals()['trip%s' % tripid], color='blue').add_to(solve_map)
 
+save = []
+for i in range(good.shape[0]):
+    save.append([globals()['facility%s' % lpg[i]]])
+for i in range(bad.shape[0]):
+    save.append(['Magazyn %i jest zamkniety' % (lpb[i]+1)])
+
+print(save)
+print(np.array(save))
+
+with open("odp2.csv", "w",  newline='') as f:
+    writer = csv.writer(f,  delimiter='|')
+    writer.writerows(save)
+
 solve_map.save('Test/SolveL_Lidl.html')
+
+print(pu.value(problem.objective))
 
 print("--- %s seconds ---" % (time.time() - start_time))
 print("fajnie było")
