@@ -20,15 +20,19 @@ def get_distance(resp1):
     resp5 = resp4[0]
     return resp5['distance']
 
-def get_coordinats(adreses):
+def get_coordinats(adreses, back):
     coordinats = []
     for i in range(adreses.shape[0]):
         msc = None
+        cor = 0
         while msc == None:
             place = geocoder.osm(adreses[i])
             msc = place.latlng
-            print(adreses[i], msc)
-        coordinats.append(place.latlng)
+            cor = cor + 1
+            if cor > 3:
+                print("użyto zastępczych koordynatów, miejsce %i" % i)
+                msc = [back[i][0], back[i][1]]
+        coordinats.append(msc)
     return np.array(coordinats)
 
 def route_coords(resp1):
@@ -54,7 +58,6 @@ def replace_col(db):
         a = db[rows, 1]
         db[rows, 1] = db[rows, 0]
         db[rows, 0] = a
-    print(dbd, db)
     return db
 
 def distance_matrix(faci, cost):
@@ -82,27 +85,51 @@ def set_center(places):
     return [((minlat+maxlat)/2), ((minlng+maxlng)/2)]
 
 def dataset(cos):
+
     adress = cos[:, :1]
-    placeprop = cos[:, 1:]
+    placeprop = cos[:, 1:-2]
+    backup = cos[:, -2:]
     placeprop = placeprop.astype('float')
-    return adress, placeprop
+    backup = backup.astype('float')
+    return adress, placeprop, backup
+
+
+while True:
+    try:
+        set = int(input("Wybierz zestaw danych 1, 2 lub 3: "))
+    except ValueError:
+        print("Podaj numer zestawu danych, który chcesz wybrać.")
+        continue
+    if set not in (1, 2, 3):
+        print("Podaj numer zestawu danych, który chcesz wybrać.")
+        continue
+    else:
+        break
+
+set = set-1
+DataSets = [["Test\TestCosS.csv", "Test\TestFacS.csv", 'Test\DataS_MediaMarkt.html', 'Test/SolveS_MediaMarkt.html', "odp.csv"],
+           ["Test\TestCosM.csv", "Test\TestFacM.csv", 'Test\DataM_Jysk.html', 'Test/SolveM_Jysk.html', "odp1.csv"],
+           ["Test\TestCosL.csv", "Test\TestFacL.csv", 'Test\DataL_Lidl.html', 'Test/SolveL_Lidl.html.html', "odp2.csv"]]
 
 start_time = time.time()
 
 client = osrm.Client(host='http://router.project-osrm.org', profile='car')
 
-with open("Test\TestCosL.csv", "r", newline='') as csvfile1:
+with open(DataSets[set][0], "r", newline='') as csvfile1:
     readercos = list(csv.reader(csvfile1, delimiter='|'))
 readercos = np.array(readercos)
-cosadress, cosdata = dataset(readercos)
+cosadress, cosdata, cosback = dataset(readercos)
 
-with open("Test\TestFacL.csv", "r", newline='') as csvfile1:
+
+with open(DataSets[set][1], "r", newline='') as csvfile1:
     readerfac = list(csv.reader(csvfile1, delimiter='|'))
 readerfac = np.array(readerfac)
-facadress, facdata = dataset(readerfac)
+facadress, facdata, facback = dataset(readerfac)
 
-cosadress = get_coordinats(cosadress)
-facadress = get_coordinats(facadress)
+
+facadress = get_coordinats(facadress, facback)
+cosadress = get_coordinats(cosadress, cosback)
+
 
 # sum of demand/supply
 supp = sum_col(facdata, 0)
@@ -120,15 +147,21 @@ center = set_center(np.vstack((cosadress, facadress)))
 
 data_map = folium.Map(center, zoom_start=8)
 
+group0 = folium.FeatureGroup(name='<span style="color: navy">Magazyny</span>')
 for i in range(facility.shape[0]):
      folium.Marker((facility[i, 0], facility[i,1]),
-        popup=('magazyn %i produkuje %i jednostek towaru,\n koszt utrzymania to: %i' %(i, int(facility[i, 2]), facility[i, 3])),
-        icon=folium.Icon(color='cadetblue')).add_to(data_map)
+        popup=('magazyn %i produkuje %i jednostek towaru,\n koszt utrzymania to: %i' %(i+1, int(facility[i, 2]), facility[i, 3])),
+        icon=folium.Icon(color='cadetblue')).add_to(group0)
+group0.add_to(data_map)
+
+group1 = folium.FeatureGroup(name='<span style="color: blue">Punkty dystrybucji</span>')
 for i in range(costumers.shape[0]):
      folium.Marker((costumers[i, :2]),
-        popup=('punkt dystrybucji %i potrzebuje %i jednostek towaru' %(i, int(costumers[i, 2]))),
-        icon=folium.Icon(color='blue')).add_to(data_map)
-data_map.save('Test\DataL_Lidl.html')
+        popup=('punkt dystrybucji %i potrzebuje %i jednostek towaru' %(i+1, int(costumers[i, 2]))),
+        icon=folium.Icon(color='blue')).add_to(group1)
+group1.add_to(data_map)
+folium.map.LayerControl('topright', collapsed=False).add_to(data_map)
+data_map.save(DataSets[set][2])
 
 facadress = replace_col(facadress)
 cosadress = replace_col(cosadress)
@@ -206,19 +239,29 @@ print(good, '\nclosed:\n', bad)
 
 solve_map = folium.Map(center, zoom_start=8)
 
+group2 = folium.FeatureGroup(name='<span style="color: lime">Otwarte magazyny</span>')
 for i in range(good.shape[0]):
      folium.Marker((good[i, :]), popup=globals()['facility%s' % lpg[i]],
-                   icon=folium.Icon(color='green')).add_to(solve_map)
+                   icon=folium.Icon(color='green')).add_to(group2)
+group2.add_to(solve_map)
+group3 = folium.FeatureGroup(name='<span style="color: red">Zamknięte magazyny</span>')
 for i in range(bad.shape[0]):
      folium.Marker((bad[i, :]), popup='Magazyn %i jest zamkniety' % lpb[i],
-                   icon=folium.Icon(color='red')).add_to(solve_map)
+                   icon=folium.Icon(color='red')).add_to(group3)
+group3.add_to(solve_map)
+group4 = folium.FeatureGroup(name='<span style="color: blue">Punkty dystrybucji</span>')
 for i in range(costumers.shape[0]):
      folium.Marker((costumers[i, :2]), popup= globals()['costumer%s' % i],
-                   icon=folium.Icon(color='blue')).add_to(solve_map)
+                   icon=folium.Icon(color='blue')).add_to(group4)
+group4.add_to(solve_map)
+
 for i in range(fac_cos.shape[0]):
     tripid = str(fac_cos[i, 0])+str(fac_cos[i, 1])
     print(tripid)
     plugins.AntPath(globals()['trip%s' % tripid], color='blue').add_to(solve_map)
+
+folium.map.LayerControl('topright', collapsed=False).add_to(solve_map)
+solve_map.save(DataSets[set][3])
 
 save = []
 for i in range(good.shape[0]):
@@ -229,13 +272,11 @@ for i in range(bad.shape[0]):
 print(save)
 print(np.array(save))
 
-with open("odp2.csv", "w",  newline='') as f:
+with open(DataSets[set][4], "w",  newline='') as f:
     writer = csv.writer(f,  delimiter='|')
     writer.writerows(save)
 
-solve_map.save('Test/SolveL_Lidl.html')
 
-print(pu.value(problem.objective))
+print("Wartość funkcji celu jest równa %.2f PLN/miesiecznie" % pu.value(problem.objective) )
 
-print("--- %s seconds ---" % (time.time() - start_time))
-print("fajnie było")
+
